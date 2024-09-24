@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Getter
 @RequiredArgsConstructor
 @RestController
-@RequestMapping()
+@RequestMapping(AplicacaoApi.PATH)
 public class AplicacaoApi
     implements CrudRestApi<Aplicacao, AplicacaoService, AplicacaoDto, AplicacaoMapper> {
   public static final String PATH = "/aplicacao";

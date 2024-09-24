@@ -5,7 +5,7 @@ import com.br.marketplace_api.modelo.dtos.UsuarioDto;
 import com.br.marketplace_api.modelo.entidades.Usuario;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface UsuarioMapper extends EntidadeBaseMapper<Usuario, UsuarioDto> {
 
 
