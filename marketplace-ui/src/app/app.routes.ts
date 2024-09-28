@@ -1,3 +1,8 @@
-import { Routes } from '@angular/router';
+import { Route } from '@angular/router';
 
-export const routes: Routes = [];
+export const ROUTES: Route[] = [
+ {
+     path: 'marketplace',
+     loadComponent: () => import('./modules/marketplace/usuario-marketplace.component').then(m => m.UsuarioMarketplaceComponent),
+ }
+] as Route[];
