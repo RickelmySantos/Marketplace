@@ -12,7 +12,6 @@ schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [RouterOutlet],
 })
 export class AppComponent {
-  title = 'marketplace-ui';
 
   constructor(private readonly translateService: TranslateService) {
   translateService.addLangs(['pt']);
