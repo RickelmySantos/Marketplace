@@ -1,0 +1,70 @@
+::ng-deep .p-tooltip.p-tooltip-bottom {
+  margin-top: 0.5rem;
+}
+
+.card-content {
+  position: relative;
+  width: 26rem;
+  height: 26rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:hover {
+    .info {
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: flex-start;
+      padding: 2rem;
+    }
+
+    .info h3 {
+      display: flex;
+      margin-bottom: 1.5rem;
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      // margin-top: auto;
+      margin-bottom: 5rem;
+    }
+  }
+}
+
+.info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 6rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: height 0.3s ease;
+  padding: 1rem;
+
+  h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+}
+
+.buttons {
+  display: none;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

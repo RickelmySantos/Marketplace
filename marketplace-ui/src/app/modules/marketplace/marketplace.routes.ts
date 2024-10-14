@@ -1,15 +1,9 @@
-import { Route } from "@angular/router";
-import { UsuarioMarketplaceComponent } from "src/app/modules/marketplace/usuario-marketplace.component";
+import { Route } from '@angular/router';
+import { UsuarioHomeComponent } from 'src/app/modules/marketplace/home/usuario-home.component';
 
 export default [
-{
-  path: '',
-  component: UsuarioMarketplaceComponent,
-  children: [
-    {
-      path: '',
-      loadComponent: () => import('./home/usuario-home.component').then(m => m.UsuarioHomeComponent)
-    },
-  ],
-},
+  {
+    path: '',
+    component: UsuarioHomeComponent,
+  },
 ] as Route[];

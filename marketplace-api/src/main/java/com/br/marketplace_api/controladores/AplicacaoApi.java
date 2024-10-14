@@ -26,7 +26,4 @@ public class AplicacaoApi
 
     return AplicacaoApi.PATH;
   }
-
-
-
 }

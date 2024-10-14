@@ -1,16 +1,17 @@
 <header class="topbar">
-    <div class="topbar__content">
-        <p class="topbar__title" [routerLink]="['/marketplace']">Aplicações</p>
-        <div class="flex align-items-center w-4 h-4rem">
-            <form action="search" aria-label="pesquisar sistemas" class="search-form ">
-                <span class="p-input-icon-right w-full h-full">
-                    <input type="text" id="searchbox" [formControl]="searchControl" name="query" placeholder="Informe um filtro de pesquisa" />
-                    <i class="pi pi-search"></i>
-                </span>
-            </form>
-        </div>
-        <div class="">
-            <p-button [routerLink]="['/']" label="home" icon="pi pi-home" ></p-button>
-        </div>
+  <div class="topbar__content">
+    <p class="topbar__title" [routerLink]="['/marketplace']">Aplicações</p>
+    <div class="flex align-items-center w-4 h-4rem">
+      <form action="search" aria-label="pesquisar sistemas" class="search-form">
+        <span class="p-input-icon-right w-full h-full">
+          <input type="text" id="searchbox" [formControl]="searchControl" name="query"
+            placeholder="Informe um filtro de pesquisa" />
+          <i class="pi pi-search"></i>
+        </span>
+      </form>
     </div>
+    <div class="">
+      <p-button [routerLink]="['/']" label="home" icon="pi pi-home"></p-button>
+    </div>
+  </div>
 </header>

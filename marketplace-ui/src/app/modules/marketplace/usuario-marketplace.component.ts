@@ -1,4 +1,8 @@
-import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TopbarComponent } from 'src/app/modules/marketplace/components/topbar/topbar.component';
 import { SharedModule } from '../../shared/shared.module';
@@ -7,11 +11,13 @@ import { SharedModule } from '../../shared/shared.module';
   selector: 'usuario-marketplace-app',
   template: `
     <topbar-app></topbar-app>
-   <main class="mt-6rem h-screen">
-    <section class="main-content flex flex-1 flex-column align-items-center justify-content-center">
+    <main class="mt-6rem h-screen">
+      <section
+        class="flex flex-1 flex-column align-items-center justify-content-center"
+      >
         <router-outlet></router-outlet>
-    </section>
-  </main>
+      </section>
+    </main>
   `,
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,6 +25,4 @@ import { SharedModule } from '../../shared/shared.module';
   styles: [':host { display: block; padding: 7rem 20rem; }'],
   imports: [SharedModule, RouterOutlet, TopbarComponent],
 })
-export class UsuarioMarketplaceComponent {
-
-}
+export class UsuarioMarketplaceComponent {}

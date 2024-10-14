@@ -1,0 +1,17 @@
+<section class="destaques flex flex-column mt-6">
+  <h2 class="text-4xl font-bold mb-5">Destaques</h2>
+  <p-carousel [numVisible]="3" [value]="aplicacoes$ | async" [numScroll]="3" [showIndicators]="false" [circular]="true"
+    [showIndicators]="true">
+    <ng-template let-aplicacao pTemplate="item">
+      <div class="destaques__content border-1 shadow-2">
+        <img class="w-12rem h-12rem pl-7" src="../../../assets/images/logos/favicon.png" alt="" />
+        <div>
+          <h2 class="text-4xl font-bold pr-7">{{ aplicacao.nome }}</h2>
+          <div class="w-min border-round-xl py-3 px-3 cursor-pointer" [routerLink]="['detail']">
+            <p class="text-xl font-bold">Detalhes</p>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</section>

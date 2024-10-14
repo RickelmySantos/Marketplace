@@ -26,5 +26,4 @@ public class UsuarioApi implements CrudRestApi<Usuario, UsuarioService, UsuarioD
 
     return UsuarioApi.PATH;
   }
-
 }

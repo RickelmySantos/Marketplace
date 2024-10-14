@@ -1,10 +1,6 @@
 {
-  "cSpell.enableFiletypes": [
-    "astro",
-    "bat",
-    "bibtex",
-    "code-referencing",
-    "code-text-binary",
-    "snippets"
-  ]
+  "cSpell.enableFiletypes": ["astro", "bat", "bibtex", "code-referencing", "code-text-binary", "snippets"],
+  "prettier.singleQuote": true,
+  "prettier.bracketSameLine": true,
+  "prettier.printWidth": 120
 }
