@@ -57,10 +57,34 @@ keycloak:
 # Configurações de logging
 logging:
   level:
-    api.lojaapi: info
-    root: info
-    org.springframework.test: debug
     org:
       flywaydb: debug
       hibernate:
         type.descriptor.sql: trace
+      springframework:
+        web:
+        filter: info
+        client: debug
+        transaction: error
+        api.lojaapi: debug
+      security:
+        org.springframework.security: DEBUG
+        com.br.core.configuracoes.WebSecurityConfig: DEBUG
+
+# Configurações do Swagger + OpenAPI
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui
+
+openapi:
+  title: API do MARKETPLACE
+  description: Documentação OpenApi v3 da API do MARKETPLACE
+  version: 1.0.0
+  contact:
+    name: guest
+    url: https://example.com
+    email: guest@gmail.com
+  base-url: http://localhost:8080/api

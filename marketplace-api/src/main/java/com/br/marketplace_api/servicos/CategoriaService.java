@@ -10,11 +10,18 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Getter
-@RequiredArgsConstructor
+// @RequiredArgsConstructor
 @Service
 public class CategoriaService implements CrudService<Categoria, CategoriaRepository> {
 
   private final CategoriaRepository categoriaRepository;
+
+  /**
+   * @param categoriaRepository
+   */
+  public CategoriaService(CategoriaRepository categoriaRepository) {
+    this.categoriaRepository = categoriaRepository;
+  }
 
   @Override
   public CategoriaRepository getRepository() {

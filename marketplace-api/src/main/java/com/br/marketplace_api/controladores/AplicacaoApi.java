@@ -6,12 +6,11 @@ import com.br.marketplace_api.modelo.entidades.Aplicacao;
 import com.br.marketplace_api.modelo.mappers.AplicacaoMapper;
 import com.br.marketplace_api.servicos.AplicacaoService;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @Getter
-@RequiredArgsConstructor
+// @RequiredArgsConstructor
 @RestController
 @RequestMapping(AplicacaoApi.PATH)
 public class AplicacaoApi
@@ -21,9 +20,29 @@ public class AplicacaoApi
   private final AplicacaoService service;
   private final AplicacaoMapper mapper;
 
+  /**
+   * @param service
+   * @param mapper
+   */
+  public AplicacaoApi(AplicacaoService service, AplicacaoMapper mapper) {
+    this.service = service;
+    this.mapper = mapper;
+  }
+
   @Override
   public String getRequestMapping() {
 
     return AplicacaoApi.PATH;
   }
+
+  @Override
+  public AplicacaoMapper getMapper() {
+    return this.mapper;
+  }
+
+  @Override
+  public AplicacaoService getService() {
+    return this.service;
+  }
+
 }
