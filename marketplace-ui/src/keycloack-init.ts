@@ -83,11 +83,10 @@ function tokenUpdate(keycloak: KeycloakService) {
                     if (refreshed) {
                         const updatedToken = await keycloak.getToken();
                         localStorage.setItem('access_token', updatedToken || '');
-                    } else {
                     }
                 })
                 .catch(error => {
-                    keycloak.login(); // Redireciona para login se a atualização falhar
+                    keycloak.login();
                 });
         }
     }, refreshInterval);
