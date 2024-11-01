@@ -5,7 +5,7 @@ type StyleType = {
     readonly core: CoreStyleType;
 };
 
-export const styleApp: StyleType = {
+export const AppStyles: StyleType = {
     core: CoreSyle,
 };
 

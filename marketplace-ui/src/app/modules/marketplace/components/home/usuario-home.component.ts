@@ -25,8 +25,6 @@ export class UsuarioHomeComponent implements OnInit {
     ngOnInit(): void {
         this.aplicacoes$ = this.searchService.listAll().pipe(map(res => res.content.flat()));
 
-        this.aplicacoes$.subscribe(aplicacoes => {
-            console.log('aplicacoes >>>>', aplicacoes);
-        });
+        this.aplicacoes$.subscribe();
     }
 }

@@ -2,6 +2,7 @@ import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
 import { TooltipModule } from 'primeng/tooltip';
 import { RefreshableComponent } from 'src/app/core/util/refreshable.component';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -16,20 +17,20 @@ type ActionButtonType = 'link' | 'header' | 'custom';
                 pButton
                 pRipple
                 [class]="buttonClass"
-                [ngClass]="{ 'p-button-raised': isButtonHeader(), 'p-button-sm p-button-rounded': isButtonLink() }"
+                [ngClass]="{ 'p-button-raised': isButtonHeader(), 'p-button-sm p-button-rounded outlined ': isButtonLink() }"
                 [pTooltip]="label | translate"
                 attr.aria-label="{{ ariaLabel ?? label | translate }} {{ contextLabel | translate }}"
                 attr.aria-controls="{{ ariaControls }}"
                 attr.aria-expanded="{{ ariaExpanded }}"
                 tooltipPosition="bottom">
                 <fa-icon *ngIf="icon" [icon]="icon" size="lg"></fa-icon>
-                <span>{{ label | translate }}</span>
+                <!-- <span>{{ label | translate }}</span> -->
             </button>
         </ng-container>
     `,
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [SharedModule, ButtonModule, TooltipModule, NgClass, NgIf, AsyncPipe],
+    imports: [SharedModule, ButtonModule, RippleModule, TooltipModule, NgClass, NgIf, AsyncPipe],
 })
 export class ActionButtonComponent extends RefreshableComponent {
     @Input()

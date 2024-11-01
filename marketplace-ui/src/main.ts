@@ -10,9 +10,9 @@ import { KeycloakService } from 'keycloak-angular';
 import { ROUTES } from 'src/app/app.routes';
 import { authInterceptor } from 'src/app/core/auth/auth.interceptor';
 import { httpLoaderFactory } from 'src/app/core/translate/translate-loader-factory';
-import { APP_ICONS } from 'src/app/icons';
+import { APP_ICONS, AppIcons } from 'src/app/icons';
 import { initialize } from 'src/keycloack-init';
-import { APP_STYLES } from 'src/style';
+import { APP_STYLES, AppStyles } from 'src/style';
 import { AppComponent } from './app/app.component';
 
 bootstrapApplication(AppComponent, {
@@ -40,11 +40,20 @@ bootstrapApplication(AppComponent, {
         {
             provide: APP_INITIALIZER,
             useFactory: initialize,
+
             multi: true,
             deps: [KeycloakService],
         },
         KeycloakService,
-        { provide: APP_ICONS, useValue: APP_ICONS },
-        { provide: APP_STYLES, useValue: APP_STYLES },
+        // {
+        //     provide: APP_INITIALIZER,
+        //     useFactory: (library: FaIconLibrary) => {
+        //         library.addIconPacks(fas);
+        //         library.addIconPacks(far);
+        //     },
+        //     deps: [FaIconLibrary],
+        // },
+        { provide: APP_ICONS, useValue: AppIcons },
+        { provide: APP_STYLES, useValue: AppStyles },
     ],
 }).catch(err => console.error(err));

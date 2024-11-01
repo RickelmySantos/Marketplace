@@ -1,5 +1,5 @@
 {
-   "primeng": {
+    "primeng": {
         "startsWith": "Começa com",
         "contains": "Contém",
         "notContains": "Não contém",
@@ -127,7 +127,7 @@
         "multiselect-entity": "Pesquise e selecione um registro para adicioná-lo na lista abaixo",
         "select-entity": "Pesquise e selecione um registro"
     },
-       "botao": {
+    "botao": {
         "aria": {
             "confirmar-exclusao": "Confirmar exclusão permanente ",
             "confirmar-arquivamento": "Confirmar exclusão ",
@@ -147,6 +147,7 @@
         "perfis-usuario": "Perfis do Usuário",
         "adicionar": "Adicionar",
         "novo": "Novo",
+        "home": "Início",
         "cadastrar": "Cadastrar",
         "remover": "Remover",
         "excluir": "Excluir Permanentemente",
@@ -183,5 +184,4 @@
         "excluir.arquivo": "Excluir Arquivo",
         "baixar.arquivo": "Baixar Arquivo"
     }
-
 }

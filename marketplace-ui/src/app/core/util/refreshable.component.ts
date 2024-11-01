@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Directive, ElementRef, Inject, inject, OnDestroy, OnInit, Renderer2 } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Directive, ElementRef, inject, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { APP_ICONS } from 'src/app/icons';
 import { APP_STYLES } from 'src/style';
@@ -12,7 +12,7 @@ export class RefreshableComponent implements OnInit, AfterViewInit, OnDestroy {
     public readonly renderer: Renderer2 = inject(Renderer2);
 
     public readonly icons = inject(APP_ICONS);
-    public readonly styles = Inject(APP_STYLES);
+    public readonly styles = inject(APP_STYLES);
     ngAfterViewInit(): void {}
 
     ngOnInit(): void {}
