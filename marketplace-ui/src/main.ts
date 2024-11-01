@@ -10,7 +10,9 @@ import { KeycloakService } from 'keycloak-angular';
 import { ROUTES } from 'src/app/app.routes';
 import { authInterceptor } from 'src/app/core/auth/auth.interceptor';
 import { httpLoaderFactory } from 'src/app/core/translate/translate-loader-factory';
+import { APP_ICONS } from 'src/app/icons';
 import { initialize } from 'src/keycloack-init';
+import { APP_STYLES } from 'src/style';
 import { AppComponent } from './app/app.component';
 
 bootstrapApplication(AppComponent, {
@@ -42,5 +44,7 @@ bootstrapApplication(AppComponent, {
             deps: [KeycloakService],
         },
         KeycloakService,
+        { provide: APP_ICONS, useValue: APP_ICONS },
+        { provide: APP_STYLES, useValue: APP_STYLES },
     ],
 }).catch(err => console.error(err));

@@ -8,18 +8,18 @@ import { environment } from 'src/environments/environments';
 
 @Injectable({ providedIn: 'root' })
 export class SearchService extends FilterService<Aplicacao> {
-  private aplicacao$: Observable<Aplicacao[]>;
-  protected readonly http: HttpClient = inject(HttpClient);
-  protected PATH: string = environment.apiUrl;
+    private aplicacao$: Observable<Aplicacao[]>;
+    protected readonly http: HttpClient = inject(HttpClient);
+    protected PATH: string = environment.apiUrl;
 
-  listAll(): Observable<ResultList<Aplicacao[]>> {
-    return this.http.get<ResultList<Aplicacao[]>>(`${this.PATH}/aplicacao`);
-  }
-
-  searchItems(): Observable<Aplicacao[]> {
-    if (!this.aplicacao$) {
-      this.aplicacao$ = this.listAll().pipe(map((res) => res.content.flat()));
+    listAll(): Observable<ResultList<Aplicacao[]>> {
+        return this.http.get<ResultList<Aplicacao[]>>(`${this.PATH}/aplicacao`);
     }
-    return this.aplicacao$;
-  }
+
+    searchItems(): Observable<Aplicacao[]> {
+        if (!this.aplicacao$) {
+            this.aplicacao$ = this.listAll().pipe(map(res => res.content.flat()));
+        }
+        return this.aplicacao$;
+    }
 }
