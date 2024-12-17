@@ -18,6 +18,8 @@ export type CoreIconsType = {
     readonly login: IconProp;
     readonly logout: IconProp;
 
+    readonly menu: IconProp;
+
     readonly remover: IconProp;
     readonly favoritar: IconProp;
 
@@ -46,6 +48,8 @@ export const CoreIcons: CoreIconsType = {
     voltar_longo: IconUtils.iconProp('fas', 'arrow-left-long'),
     login: IconUtils.iconProp('fas', 'right-to-bracket'),
     logout: IconUtils.iconProp('fas', 'power-off'),
+
+    menu: IconUtils.iconProp('fas', 'bars'),
 
     remover: IconUtils.iconProp('fas', 'xmark'),
     favoritar: IconUtils.iconProp('fas', 'star'),

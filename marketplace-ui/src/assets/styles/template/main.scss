@@ -14,7 +14,15 @@
 // Components
 @import "components/cards";
 @import "components/components";
-@import "components/topbar";
+
+// Layout
+@import "layout/content";
+@import "layout/footer";
+@import "layout/main";
+@import "layout/menu";
+@import "layout/placeholders";
+@import "layout/sidebar";
+@import "layout/topbar";
 
 // Pages
 @import "pages/pages";

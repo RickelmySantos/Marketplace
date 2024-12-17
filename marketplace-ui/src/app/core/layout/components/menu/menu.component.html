@@ -1,0 +1,3 @@
+<ul role="list" class="menu" *ngIf="{menu: menuService.state$| async} as state">
+    <ng-container *ngFor="let menuItem of state.menu?.model; let i = index; trackby: trackMenuItemById"></ng-container>
+</ul>

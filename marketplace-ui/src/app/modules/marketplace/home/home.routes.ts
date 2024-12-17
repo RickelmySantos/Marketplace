@@ -1,5 +1,5 @@
 import { Route } from '@angular/router';
-import { HomeComponent } from 'src/app/modules/marketplace/components/marketplace-home/home.component';
+import { HomeComponent } from 'src/app/modules/marketplace/home/home.component';
 
 export default [
     {

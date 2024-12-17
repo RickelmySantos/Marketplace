@@ -32,8 +32,8 @@ spring:
       client:
         registration:
           keycloak:
-            client-id: spring-boot-client
-            client-secret: 5wsr3ckGoPdle9VHM995gurle5J4w0Sz
+            client-id: marketplace-api
+            client-secret: YvEN8FepoOgE3t3M9UpmQaqvlJKUJjhv
             scope: openid, profile, email
             redirect-uri: http://localhost:8080/login/oauth2/code/keycloak
             # redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'
@@ -46,10 +46,10 @@ spring:
 keycloak:
   auth-server-url: http://localhost:8280
   realm: marketplace
-  resource: spring-boot-client
+  resource: marketplace-api
   public-client: false
   credentials:
-    secret: 5wsr3ckGoPdle9VHM995gurle5J4w0Sz
+    secret: YvEN8FepoOgE3t3M9UpmQaqvlJKUJjhv
     ssl-required: external
     bearer-only: true
     use-resource-role-mappings: true

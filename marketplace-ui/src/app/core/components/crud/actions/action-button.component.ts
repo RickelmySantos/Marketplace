@@ -1,4 +1,4 @@
-import { AsyncPipe, NgClass, NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { ButtonModule } from 'primeng/button';
@@ -30,7 +30,7 @@ type ActionButtonType = 'link' | 'header' | 'custom';
     `,
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [SharedModule, ButtonModule, RippleModule, TooltipModule, NgClass, NgIf, AsyncPipe],
+    imports: [SharedModule, ButtonModule, RippleModule, TooltipModule, NgClass, NgIf],
 })
 export class ActionButtonComponent extends RefreshableComponent {
     @Input()

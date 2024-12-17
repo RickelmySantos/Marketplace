@@ -1,8 +1,9 @@
 import { NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output } from '@angular/core';
 import { Aplicacao } from 'src/app/models/aplicacao.model';
-import { CardFooterComponent } from 'src/app/modules/marketplace/components/cards/card-footer.component';
-import { CardSistemaComponent } from 'src/app/modules/marketplace/components/cards/card-sistema.component';
+import { CardFooterComponent } from 'src/app/modules/marketplace/components/marketplace-cards/card-footer.component';
+import { CardSistemaComponent } from 'src/app/modules/marketplace/components/marketplace-cards/card-sistema.component';
+
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({

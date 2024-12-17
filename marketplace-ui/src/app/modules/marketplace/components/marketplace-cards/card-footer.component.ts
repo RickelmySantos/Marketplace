@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ActionButtonComponent } from 'src/app/core/components/crud/actions/action-button.component';
 import { RefreshableComponent } from 'src/app/core/util/refreshable.component';
-import { ActionButtonComponent } from 'src/app/modules/marketplace/components/actions/action-button.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({

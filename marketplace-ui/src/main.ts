@@ -4,6 +4,9 @@ import { APP_INITIALIZER, importProvidersFrom, provideZoneChangeDetection } from
 import { bootstrapApplication, BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { OAuthStorage } from 'angular-oauth2-oidc';
 import { KeycloakService } from 'keycloak-angular';
@@ -11,7 +14,6 @@ import { ROUTES } from 'src/app/app.routes';
 import { authInterceptor } from 'src/app/core/auth/auth.interceptor';
 import { httpLoaderFactory } from 'src/app/core/translate/translate-loader-factory';
 import { APP_ICONS, AppIcons } from 'src/app/icons';
-import { initialize } from 'src/keycloack-init';
 import { APP_STYLES, AppStyles } from 'src/style';
 import { AppComponent } from './app/app.component';
 
@@ -39,21 +41,37 @@ bootstrapApplication(AppComponent, {
         },
         {
             provide: APP_INITIALIZER,
-            useFactory: initialize,
+            useFactory: (keycloak: KeycloakService, library: FaIconLibrary) => () => {
+                library.addIconPacks(fas);
+                library.addIconPacks(far);
 
+                return keycloak
+                    .init({
+                        config: {
+                            clientId: 'angular-ui',
+                            realm: 'marketplace',
+                            url: 'http://localhost:8280',
+                        },
+                        initOptions: {
+                            onLoad: 'login-required',
+                            checkLoginIframe: false,
+                        },
+                        enableBearerInterceptor: true,
+                        bearerPrefix: 'Bearer',
+                        bearerExcludedUrls: ['/assets', '/public'],
+                    })
+                    .then(async () => {
+                        const token = await keycloak.getToken();
+                        if (token) {
+                            localStorage.setItem('access_token', token);
+                        }
+                    });
+            },
+            deps: [KeycloakService, FaIconLibrary],
             multi: true,
-            deps: [KeycloakService],
         },
         KeycloakService,
-        // {
-        //     provide: APP_INITIALIZER,
-        //     useFactory: (library: FaIconLibrary) => {
-        //         library.addIconPacks(fas);
-        //         library.addIconPacks(far);
-        //     },
-        //     deps: [FaIconLibrary],
-        // },
-        { provide: APP_ICONS, useValue: AppIcons },
-        { provide: APP_STYLES, useValue: AppStyles },
+        { provide: APP_ICONS, useFactory: () => AppIcons },
+        { provide: APP_STYLES, useFactory: () => AppStyles },
     ],
 }).catch(err => console.error(err));

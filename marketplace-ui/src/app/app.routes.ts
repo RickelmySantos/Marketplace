@@ -5,12 +5,16 @@ export const ROUTES: Route[] = [
     {
         path: '',
         canActivate: [AuthGuard],
-        loadComponent: () => import('./modules/marketplace/usuario-marketplace.component').then(m => m.UsuarioMarketplaceComponent),
+        loadComponent: () => import('./core/layout/layout.component').then(m => m.LayoutComponent),
         children: [
             {
                 path: '',
                 loadChildren: () => import('./modules/marketplace/marketplace.routes'),
             },
         ],
+    },
+    {
+        path: '**',
+        redirectTo: 'pages/not-found',
     },
 ] as Route[];
