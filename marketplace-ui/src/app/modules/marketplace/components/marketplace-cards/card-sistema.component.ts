@@ -1,6 +1,4 @@
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, Input } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { TooltipModule } from 'primeng/tooltip';
 import { Aplicacao } from 'src/app/models/aplicacao.model';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -26,7 +24,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    imports: [SharedModule, TooltipModule, RouterLink, NgIf, NgFor, AsyncPipe],
+    imports: [SharedModule, TooltipModule],
 })
 export class CardSistemaComponent {
     @Input()

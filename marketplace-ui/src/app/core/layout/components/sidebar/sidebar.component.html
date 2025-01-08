@@ -1,4 +1,4 @@
-<ng-container *ngIf="{value:layoutService.state} as state">
+<ng-container *ngIf="{value:layoutService.state$ | async } as state">
     <aside id="sidebar" class="sidebar" (mouseenter)="mouseEnterSidebar($event)" (mouseleave)="mouseLeaveSidebar($event)" aria-label="menu lateral">
         <section class="sidebar__header">
             <div class="logo">logo</div>

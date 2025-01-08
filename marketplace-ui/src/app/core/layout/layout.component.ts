@@ -1,5 +1,5 @@
 import { AsyncPipe, NgClass, NgIf } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from 'src/app/core/layout/components/footer/footer.component';
 import { SidebarComponent } from 'src/app/core/layout/components/sidebar/sidebar.component';
@@ -17,5 +17,19 @@ import { SharedModule } from 'src/app/shared/shared.module';
 export class LayoutComponent extends BaseComponent {
     constructor(public layoutService: LayoutService) {
         super();
+    }
+
+    onLoadPage(page: BaseComponent): void {
+        this.renderer.addClass(page.el.nativeElement, 'fluid-content');
+    }
+
+    override ngOnInit(): void {
+        super.ngOnInit();
+        this.configSideBar();
+    }
+
+    @HostListener('window:resize')
+    configSideBar() {
+        this.layoutService.resetLayout();
     }
 }

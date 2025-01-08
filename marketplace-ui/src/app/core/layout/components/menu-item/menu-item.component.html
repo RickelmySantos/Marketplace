@@ -1,4 +1,4 @@
-<ng-container *ngIf="item && item.visible !== false && (!item.permissionsAllowed)">
+<ng-container>
     <ng-container *ngIf="!item.separator; else separator">
         <label #tituloMenuItem [id]="uuid.generateId()" class="p-sr-only">{{'aria.menu.item' | translate}} {{item.label | translate}}</label>
         <li [id]="uuid.generateId()" class="menu__item" role="listitem" [attr.aria-labelledby]="tituloMenuItem.id">

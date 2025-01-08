@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+import { AsyncPipe, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { MenuComponent } from 'src/app/core/layout/components/menu/menu.component';
 import { LayoutService } from 'src/app/core/layout/service/layout.service';
@@ -8,10 +8,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
 @Component({
     selector: 'app-sidebar',
     templateUrl: './sidebar.component.html',
-    styles: [``],
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [SharedModule, NgIf, MenuComponent],
+    imports: [SharedModule, NgIf, AsyncPipe, MenuComponent],
 })
 export class SidebarComponent extends BaseComponent {
     @Output() enter = new EventEmitter<boolean>();

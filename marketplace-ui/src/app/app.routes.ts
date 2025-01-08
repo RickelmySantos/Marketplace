@@ -7,8 +7,9 @@ export const ROUTES: Route[] = [
         canActivate: [AuthGuard],
         loadComponent: () => import('./core/layout/layout.component').then(m => m.LayoutComponent),
         children: [
+            { path: '', loadChildren: () => import('./modules/marketplace/home/home.routes') },
             {
-                path: '',
+                path: 'marketplace',
                 loadChildren: () => import('./modules/marketplace/marketplace.routes'),
             },
         ],

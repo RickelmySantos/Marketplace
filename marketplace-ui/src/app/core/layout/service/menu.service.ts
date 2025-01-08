@@ -1,4 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 import { Observable } from 'rxjs';
 import { MENU_STATE, MenuState } from 'src/app/core/layout/state/menu.state';
 import { DataStore } from 'src/app/core/store/data.store';
@@ -15,7 +16,7 @@ export class MenuService {
         return this.store.value;
     }
 
-    load(model: MenuState[]): void {
+    load(model: MenuItem[]): void {
         this.store.value = { model };
     }
 }

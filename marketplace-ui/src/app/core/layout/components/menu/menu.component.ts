@@ -4,6 +4,7 @@ import { MenuItem } from 'primeng/api';
 import { MenuService } from 'src/app/core/layout/service/menu.service';
 import { BaseComponent } from 'src/app/core/util/base.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MenuItemComponent } from '../menu-item/menu-item.component';
 
 @Component({
     selector: 'app-menu',
@@ -11,7 +12,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     styles: [':host {width: 100%; margin-top: 0.5rem; margin-bottom: 0.5rem}'],
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [SharedModule, NgFor, NgIf, AsyncPipe],
+    imports: [SharedModule, NgFor, NgIf, AsyncPipe, MenuItemComponent],
 })
 export class MenuComponent extends BaseComponent {
     constructor(public readonly menuService: MenuService) {

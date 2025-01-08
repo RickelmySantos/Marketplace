@@ -183,5 +183,14 @@
         "reenviar.arquivo": "Reenviar Arquivo",
         "excluir.arquivo": "Excluir Arquivo",
         "baixar.arquivo": "Baixar Arquivo"
+    },
+
+    "menu": {
+        "home": "Página Inicial",
+        "dashboard": "Dashboard",
+        "configuracoes": "Configurações",
+        "categoria": "Categoria",
+        "aplicacao": "Aplicação",
+        "marketplace": "Marketplace"
     }
 }

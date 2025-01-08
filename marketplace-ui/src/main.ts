@@ -8,10 +8,11 @@ import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { OAuthStorage } from 'angular-oauth2-oidc';
+import { OAuthStorage, provideOAuthClient } from 'angular-oauth2-oidc';
 import { KeycloakService } from 'keycloak-angular';
 import { ROUTES } from 'src/app/app.routes';
 import { authInterceptor } from 'src/app/core/auth/auth.interceptor';
+import { AuthService } from 'src/app/core/auth/auth.service';
 import { httpLoaderFactory } from 'src/app/core/translate/translate-loader-factory';
 import { APP_ICONS, AppIcons } from 'src/app/icons';
 import { APP_STYLES, AppStyles } from 'src/style';
@@ -22,6 +23,7 @@ bootstrapApplication(AppComponent, {
         provideZoneChangeDetection({ eventCoalescing: true }),
         provideRouter(ROUTES),
         provideClientHydration(),
+        provideOAuthClient(),
         provideHttpClient(withInterceptors([authInterceptor])),
         BrowserAnimationsModule,
         BrowserModule,
@@ -38,6 +40,13 @@ bootstrapApplication(AppComponent, {
         {
             provide: OAuthStorage,
             useValue: localStorage,
+        },
+        {
+            provide: AuthService,
+            useFactory: () => {
+                const service = new AuthService();
+                return service;
+            },
         },
         {
             provide: APP_INITIALIZER,
